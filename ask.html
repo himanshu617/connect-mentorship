@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ask a Question | Connect Mentorship</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <div class="logo">Connect</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ask.html">Ask Question</a>
+        <a href="index.html#become">Become Mentor</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ask Question Section -->
+  <section class="page-section">
+    <div class="container">
+      <h2>Ask Your Question</h2>
+      <p class="center-text">
+        Ask anything about exams, college life, careers, or skills.  
+        Seniors will guide you with real experience.
+      </p>
+
+      <!-- Question Form -->
+      <form id="questionForm" class="question-form">
+
+        <label>Your Name (optional)</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Email (optional)</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label>Category</label>
+        <select id="category" required>
+          <option value="">Select a category</option>
+          <option value="Exams">Exams</option>
+          <option value="College Life">College Life</option>
+          <option value="Career">Career</option>
+          <option value="Skills">Skills</option>
+        </select>
+
+        <label>Your Question *</label>
+        <textarea id="question" rows="6" placeholder="Write your question clearly..." required></textarea>
+
+        <button type="submit" class="btn">Submit Question</button>
+
+        <p id="formMessage" class="form-message"></p>
+      </form>
+    </div>
+    <hr>
+
+<h2>Answered Questions</h2>
+
+<div id="publicQuestions"></div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Connect Mentorship. Made for Indian Students.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

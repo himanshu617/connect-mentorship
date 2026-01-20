@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel | Connect Mentorship</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .admin-section {
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+    .data-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    .data-card h4 {
+      color: #4f46e5;
+      margin-bottom: 10px;
+    }
+    .empty {
+      text-align: center;
+      color: #777;
+      font-style: italic;
+    }
+    .danger-btn {
+      background: #ef4444;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <div class="logo">Connect Admin</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="admin.html">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Admin Heading -->
+  <section class="page-section">
+    <div class="container">
+      <h2>Admin Dashboard</h2>
+      <p class="center-text">
+        View all submitted questions, mentor applications, and contact messages.
+      </p>
+    </div>
+  </section>
+
+<!-- QUESTIONS -->
+<section class="admin-section">
+  <h2>Asked Questions</h2>
+
+  <button class="btn" onclick="exportQuestions()">
+    Export Questions
+  </button>
+<h2>Asked Questions</h2>
+<div id="questionsList"></div>
+
+</section>
+
+
+  <!-- MENTORS -->
+  <section class="admin-section">
+  <h2>Mentor Applications</h2>
+<button class="btn" onclick="exportMentors()">Export Mentors</button>
+<div id="mentorsList"></div>
+
+  </section>
+
+  <!-- CONTACTS -->
+  <section class="admin-section">
+<h2>Contact Messages</h2>
+<button class="btn" onclick="exportContacts()">Export Contacts</button>
+<div id="contactsList"></div>
+
+  </section>
+
+  <!-- CLEAR DATA -->
+  <section class="admin-section" style="text-align:center;">
+    <button class="danger-btn" onclick="clearAllData()">
+      Clear All Local Data
+    </button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Connect Mentorship Admin Panel</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+
+</body>
+</html>

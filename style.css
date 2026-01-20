@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+nav {
+  background: #4f46e5;
+  color: #fff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(rgba(79,70,229,.85), rgba(79,70,229,.85)),
+  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: white;
+  color: #4f46e5;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+/* Sections */
+section {
+  padding: 80px 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.center-text {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
+.light-bg {
+  background: #f1f5f9;
+}
+
+.blue-bg {
+  background: #eff6ff;
+}
+
+/* Cards */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.step-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.step-card h3 {
+  color: #4f46e5;
+}
+
+/* Footer */
+footer {
+  background: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .nav-links { display: none; }
+}
+
+/* ask page */
+/* Ask Question Form */
+.question-form {
+  max-width: 600px;
+  margin: 40px auto 0;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.question-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.question-form input,
+.question-form select,
+.question-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.question-form button {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.form-message {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
