@@ -3,8 +3,8 @@
 ============================ */
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Connect Mentorship Platform Loaded");
+  loadPublicQuestions();
 });
-
 
 /* ============================
    ASK QUESTION → LOCALSTORAGE
@@ -16,15 +16,15 @@ if (questionForm) {
   questionForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
- const questionData = {
-  name: document.getElementById("name").value || "Anonymous",
-  email: document.getElementById("email").value || "Not Provided",
-  category: document.getElementById("category").value,
-  question: document.getElementById("question").value,
-  answer: "",              // NEW
-  askedAt: new Date().toLocaleString(),
-  answeredAt: ""           // NEW
-};
+    const questionData = {
+      name: document.getElementById("name").value || "Anonymous",
+      email: document.getElementById("email").value || "Not Provided",
+      category: document.getElementById("category").value,
+      question: document.getElementById("question").value,
+      answer: "",
+      askedAt: new Date().toLocaleString(),
+      answeredAt: ""
+    };
 
     if (!questionData.category || !questionData.question) {
       questionMessage.style.color = "red";
@@ -42,7 +42,6 @@ if (questionForm) {
   });
 }
 
-
 /* ============================
    MENTOR FORM → LOCALSTORAGE
 ============================ */
@@ -54,15 +53,21 @@ if (mentorForm) {
     e.preventDefault();
 
     const mentorData = {
-      name: mentorName.value,
-      email: mentorEmail.value,
-      level: mentorLevel.value,
-      expertise: mentorExpertise.value,
-      reason: mentorReason.value,
-      date: new Date().toLocaleString()
+      name: document.getElementById("mentorName").value,
+      email: document.getElementById("mentorEmail").value,
+      level: document.getElementById("mentorLevel").value,
+      expertise: document.getElementById("mentorExpertise").value,
+      reason: document.getElementById("mentorReason").value,
+      appliedAt: new Date().toLocaleString()
     };
 
-    if (!mentorData.name || !mentorData.email) {
+    if (
+      !mentorData.name ||
+      !mentorData.email ||
+      !mentorData.level ||
+      !mentorData.expertise ||
+      !mentorData.reason
+    ) {
       mentorMessage.style.color = "red";
       mentorMessage.innerText = "Please fill all fields.";
       return;
@@ -73,46 +78,47 @@ if (mentorForm) {
     localStorage.setItem("mentors", JSON.stringify(mentors));
 
     mentorMessage.style.color = "green";
-    mentorMessage.innerText = "Mentor application submitted!";
+    mentorMessage.innerText = "Mentor application submitted successfully!";
     mentorForm.reset();
   });
 }
-
 
 /* ============================
    CONTACT FORM → LOCALSTORAGE
 ============================ */
 const contactForm = document.getElementById("contactForm");
-const contactMessage = document.getElementById("contactFormMessage");
+const contactFormMessage = document.getElementById("contactFormMessage");
 
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const contactData = {
-      name: contactName.value,
-      email: contactEmail.value,
-      message: contactMessage.value,
+      name: document.getElementById("contactName").value,
+      email: document.getElementById("contactEmail").value,
+      message: document.getElementById("contactMessage").value,
       date: new Date().toLocaleString()
     };
+
+    if (!contactData.name || !contactData.email || !contactData.message) {
+      contactFormMessage.style.color = "red";
+      contactFormMessage.innerText = "Please fill all fields.";
+      return;
+    }
 
     let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
     contacts.push(contactData);
     localStorage.setItem("contacts", JSON.stringify(contacts));
 
-    contactMessage.style.color = "green";
-    contactMessage.innerText = "Message sent successfully!";
+    contactFormMessage.style.color = "green";
+    contactFormMessage.innerText = "Message sent successfully!";
     contactForm.reset();
   });
 }
 
-
-
-
 /* ============================
    SHOW ANSWERS TO USERS
 ============================ */
-
 function loadPublicQuestions() {
   const questions = JSON.parse(localStorage.getItem("questions")) || [];
   const container = document.getElementById("publicQuestions");
@@ -130,7 +136,6 @@ function loadPublicQuestions() {
     container.innerHTML += `
       <div class="data-card">
         <p><strong>Question:</strong> ${q.question}</p>
-
         ${
           q.answer
             ? `<p><strong>Answer:</strong> ${q.answer}</p>`
@@ -140,6 +145,3 @@ function loadPublicQuestions() {
     `;
   });
 }
-
-// Load when page opens
-document.addEventListener("DOMContentLoaded", loadPublicQuestions);
