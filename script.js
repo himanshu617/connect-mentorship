@@ -76,6 +76,8 @@ if (mentorForm) {
     let mentors = JSON.parse(localStorage.getItem("mentors")) || [];
     mentors.push(mentorData);
     localStorage.setItem("mentors", JSON.stringify(mentors));
+     gtag('event', 'mentor_submit');
+
 
     mentorMessage.style.color = "green";
     mentorMessage.innerText = "Mentor application submitted successfully!";
@@ -109,6 +111,8 @@ if (contactForm) {
     let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
     contacts.push(contactData);
     localStorage.setItem("contacts", JSON.stringify(contacts));
+     gtag('event', 'contact_submit');
+
 
     contactFormMessage.style.color = "green";
     contactFormMessage.innerText = "Message sent successfully!";
@@ -145,3 +149,4 @@ function loadPublicQuestions() {
     `;
   });
 }
+
